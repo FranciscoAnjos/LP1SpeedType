@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Metadata;
 
 namespace SpeedType
 {
@@ -25,7 +26,7 @@ namespace SpeedType
         /// </remarks>
         public double CalculateWPM(string userInput, double timeTaken)
         {
-            int wordsTyped = // ////////// => TO IMPLEMENT <= //////////// //
+            int wordsTyped = userInput.Length;
             return (wordsTyped / timeTaken) * 60;
         }
 
@@ -51,11 +52,14 @@ namespace SpeedType
         public int CalculateAccuracy(string userInput, string originalText)
         {
             int correctChars = 0;
-            int minLength = // ////////// => TO IMPLEMENT <= //////////// //
+            int minLength = originalText.Length;
 
             for (int i = 0; i < minLength; i++)
             {
-                // ////////// => TO IMPLEMENT <= //////////// //
+                if (userInput[i] == originalText[i])
+                {
+                    correctChars++;
+                }
             }
 
             return (int)((double)correctChars / originalText.Length * 100);
